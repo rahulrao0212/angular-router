@@ -1,0 +1,25 @@
+<h3>Product List</h3>
+
+<br /><br />
+<p>Current Page No: <strong style="color: red;"> {{pageNo}} </strong></p>
+
+<div class='table-responsive'>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.productID}}</td>
+                <td><a [routerLink]="['detail',product.productID]">{{product.name}} </a> </td>
+                <td>{{product.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div><br />
+<button class="btn btn-warning btn-xs" (click)="nextPage()">Next Page</button>
+<router-outlet></router-outlet>
